@@ -9,19 +9,19 @@ import { StartPage } from './app/containers/StartPage';
 import './styles/App.css';
 
 export const App: React.FunctionComponent = () => {
-  return (
-    <div className="App">
-      <BrowserRouter>
-        <Navigation />
-        <Switch>
-          <Route exact path="/" render={() => (<StartPage />)} />
-          <Route exact path="/about" render={() => (<About />)} />
-          <Route exact path="/contactsUs" render={() => (<Contacts />)} />
-          <Route exact path="/login" render={() => (<Login />)} />
-          <Route exact path="/reset-password" render={() => (<ResetPassword />)} />
-          <Route render={() => (<NotFound />)} />
-        </Switch>
-      </BrowserRouter>
-    </div>
-  );
+	return (
+		<div className="App">
+			<BrowserRouter>
+				<Navigation />
+				<Switch>
+					<Route exact path="/" render={() => (<StartPage />)} />
+					<Route exact path="/about" render={() => (<About />)} />
+					<Route exact path="/contactsUs" render={() => (<Contacts />)} />
+					<Route exact path="/login" render={() => (<Login />)} />
+					<Route exact path="/reset-password" render={() => (<ResetPassword />)} />
+					<Route render={() => (<NotFound />)} />
+				</Switch>
+			</BrowserRouter>
+		</div>
+	);
 }

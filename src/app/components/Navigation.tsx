@@ -1,9 +1,10 @@
 import { createStyles, makeStyles } from '@mui/styles';
-import React from 'react';
+import React, { useContext } from "react";
 import logo from '../../images/PP-logo.png';
 import { DrawerComponent } from './Drawer';
 import { Link } from "react-router-dom";
 import { AppBar, CssBaseline, Toolbar } from '@mui/material';
+import { AuthContext } from "../../context/AuthContext";
 
 const useStyles = makeStyles(() => createStyles({
 
@@ -24,7 +25,8 @@ const useStyles = makeStyles(() => createStyles({
 }));
 
 export const Navigation: React.FunctionComponent = () => {
-
+    const user = useContext(AuthContext);
+    
     const classes = useStyles();
 
     return (

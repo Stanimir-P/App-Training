@@ -13,8 +13,11 @@ export const StartPage: React.FunctionComponent<{}> = () => {
                 }}
                 component={Link} to="/about"
                 onClick={() => console.log('Button clicked')}
-                color={'primary'}
                 variant={'outlined'}
+                sx={{
+                    color: 'white',
+                    border: '1px solid white',
+                }}
             >
                 About
             </Button>

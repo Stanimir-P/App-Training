@@ -41,7 +41,6 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-
 const Login = () => {
 
     const classes = useStyles();
@@ -63,7 +62,7 @@ const Login = () => {
     };
 
     const signIn = async () => {
-        try {
+        try {            
             await auth.signInWithEmailAndPassword(
                 username,
                 password
