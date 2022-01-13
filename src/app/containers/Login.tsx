@@ -4,6 +4,7 @@ import { createStyles, makeStyles } from '@mui/styles';
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import { auth } from '../../firebaseSetup';
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -24,7 +25,8 @@ const useStyles = makeStyles((theme: Theme) =>
             display: 'flex',
             flexWrap: 'wrap',
             width: 400,
-            margin: `${theme.spacing(0)} auto`
+            margin: `${theme.spacing(0)} auto`,
+            justifyContent: 'center',
         },
         loginBtn: {
             marginTop: theme.spacing(2),
@@ -36,7 +38,13 @@ const useStyles = makeStyles((theme: Theme) =>
             color: '#fff'
         },
         card: {
-            marginTop: theme.spacing(10)
+            display: 'flex',
+            flexDirection: 'column',
+            marginTop: theme.spacing(10),
+        },
+        link: {
+            color: 'black',
+            marginBottom: '10px',
         }
     })
 );
@@ -57,17 +65,19 @@ const Login = () => {
                 password
             );
         } catch (error) {
+            alert("Oops, an error occurred!");
             console.error(error);
         }
     };
 
     const signIn = async () => {
-        try {            
+        try {
             await auth.signInWithEmailAndPassword(
                 username,
                 password
             );
         } catch (error) {
+            alert("Wrong username or/and password!");
             console.error(error);
         }
     };
@@ -140,6 +150,8 @@ const Login = () => {
                                 </Grid>
                             </Container>
                         </CardActions>
+                        
+                        <Link to="/reset-password" className={classes.link}>Forgot your password?</Link>
                     </Card>
                     ) : (
                         <Card className={classes.card}>

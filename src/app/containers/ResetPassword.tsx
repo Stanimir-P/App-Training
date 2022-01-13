@@ -65,7 +65,7 @@ export const ResetPassword: React.FunctionComponent = () => {
                                     required
                                     fullWidth
                                     onChange={(event) => setEmail(event.target.value)}
-                                    id="email"
+                                    id="emailReset"
                                     label="Email Address"
                                     name="email"
                                     autoComplete="email"

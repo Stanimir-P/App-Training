@@ -5,6 +5,7 @@ import { DrawerComponent } from './Drawer';
 import { Link } from "react-router-dom";
 import { AppBar, CssBaseline, Toolbar } from '@mui/material';
 import { AuthContext } from "../../context/AuthContext";
+import { Login, Person } from '@mui/icons-material';
 
 const useStyles = makeStyles(() => createStyles({
 
@@ -22,11 +23,20 @@ const useStyles = makeStyles(() => createStyles({
         imageRendering: 'crisp-edges',
     },
 
+    link: {
+        color: 'rgba(0, 0, 0, 0.54)',
+        marginLeft: '20px',
+    },
+
+    rightSide: {
+        display: 'flex',
+        alignItems: 'center',
+    }
 }));
 
 export const Navigation: React.FunctionComponent = () => {
     const user = useContext(AuthContext);
-    
+
     const classes = useStyles();
 
     return (
@@ -36,7 +46,22 @@ export const Navigation: React.FunctionComponent = () => {
                 <Link to="/" >
                     <img className={classes.logo} src={logo} alt="logo" />
                 </Link>
-                <DrawerComponent />
+
+                <div className={classes.rightSide}>
+                    <DrawerComponent />
+
+                    {!user ?
+                        (
+                            <Link to="/login">
+                                <Login fontSize="medium" className={classes.link}/>
+                            </Link>
+                        ) : (
+                            <Link to="/user-options">
+                                <Person fontSize="medium" className={classes.link}/>
+                            </Link>
+                        )
+                    }
+                </div>
             </Toolbar>
         </AppBar >
     );
