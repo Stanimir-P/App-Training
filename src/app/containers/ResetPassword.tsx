@@ -42,6 +42,7 @@ export const ResetPassword: React.FunctionComponent = () => {
                 history.push("/login");
             })
             .catch((error) => {
+                console.log(error);
             });
     };
 

@@ -1,6 +1,6 @@
 import Login from "./Login";
-import { ResetPassword } from "./ResetPassword";
 import { createStyles, makeStyles } from '@mui/styles';
+import ChangePassword from "./ChangePassword";
 
 const useStyles = makeStyles(() => createStyles({
     userOptions: {
@@ -18,7 +18,7 @@ export const UserOptions: React.FunctionComponent = () => {
         <div className={classes.userOptions}>
             <Login />
 
-            <ResetPassword />
+            <ChangePassword />
         </div>
     );
 }

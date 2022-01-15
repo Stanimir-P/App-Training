@@ -7,7 +7,10 @@ import { NotFound } from './app/containers/NotFound';
 import { ResetPassword } from './app/containers/ResetPassword';
 import { StartPage } from './app/containers/StartPage';
 import { UserOptions } from './app/containers/UserOptions';
+import { Tickets } from './app/containers/Tickets';
+
 import './styles/App.css';
+import ChangePassword from './app/containers/ChangePassword';
 
 export const App: React.FunctionComponent = () => {
 	return (
@@ -21,6 +24,8 @@ export const App: React.FunctionComponent = () => {
 					<Route exact path="/login" render={() => (<Login />)} />
 					<Route exact path="/reset-password" render={() => (<ResetPassword />)} />
 					<Route exact path="/user-options" render={() => (<UserOptions />)} />
+					<Route exact path="/tickets" render={() => (<Tickets />)} />
+					<Route exact path="/asd" render={() => (<ChangePassword />)} />
 					<Route render={() => (<NotFound />)} />
 				</Switch>
 			</BrowserRouter>

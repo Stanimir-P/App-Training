@@ -40,7 +40,7 @@ export const Navigation: React.FunctionComponent = () => {
     const classes = useStyles();
 
     return (
-        <AppBar position='sticky'>
+        <AppBar position='sticky' sx={{width: '100%'}}>
             <CssBaseline />
             <Toolbar className={classes.toolbar}>
                 <Link to="/" >

@@ -4,6 +4,7 @@ import { style } from "typestyle";
 import { MessageType } from "../../domain/Message";
 import { auth } from "../../firebaseSetup";
 import { messageService } from "../services/MessageService";
+import { useHistory } from "react-router-dom";
 
 const classNames = {
 
@@ -48,6 +49,7 @@ const renderNotAuthorized = (): JSX.Element => {
 };
 
 export const Contacts: React.FunctionComponent = () => {
+    const history = useHistory();
 
     const [messageType, setMessageType] = useState<string>('');
 
@@ -76,6 +78,8 @@ export const Contacts: React.FunctionComponent = () => {
             description: description,
             messageType: messageType as MessageType,
         })
+
+        return history.push("/tickets");
     };
 
     return (

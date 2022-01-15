@@ -4,7 +4,7 @@ import { createStyles, makeStyles } from '@mui/styles';
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import { auth } from '../../firebaseSetup';
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -50,8 +50,8 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const Login = () => {
-
     const classes = useStyles();
+    const history = useHistory();
 
     const user = useContext(AuthContext);
 
@@ -76,6 +76,7 @@ const Login = () => {
                 username,
                 password
             );
+            history.push('/tickets');
         } catch (error) {
             alert("Wrong username or/and password!");
             console.error(error);
@@ -84,6 +85,7 @@ const Login = () => {
 
     const signOut = async () => {
         await auth.signOut();
+        history.push('/');
     };
 
     const handleUsernameChange: React.ChangeEventHandler<HTMLInputElement> =
