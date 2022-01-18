@@ -33,11 +33,12 @@ export const DrawerComponent: React.FunctionComponent = () => {
     return (
         <Fragment>
             <Drawer
+                style={{ position: 'relative', zIndex: 1 }}
                 open={openDrawer}
                 onClose={CloseDrawer}
                 anchor="right"
             >
-                <List >
+                <List  sx={{ pt: '60px' }}>
                     <ListItem onClick={CloseDrawer}>
                         <Home fontSize="medium" />
 
@@ -53,25 +54,23 @@ export const DrawerComponent: React.FunctionComponent = () => {
                         </ListItemText>
                     </ListItem>
 
-                    {!user ?
-                        (
-                            <ListItem onClick={CloseDrawer}>
+
+                    <ListItem onClick={CloseDrawer}>
+                        {!user ?
+                            (
                                 <Login fontSize="medium" />
-
-                                <ListItemText>
-                                    <Link className={classes.link} to="/login">Login</Link>
-                                </ListItemText>
-                            </ListItem>
-                        ) : (
-                            <ListItem onClick={CloseDrawer}>
+                            ) : (
                                 <Person fontSize="medium" />
+                            )}
 
-                                <ListItemText>
-                                    <Link className={classes.link} to="/login">User</Link>
-                                </ListItemText>
-                            </ListItem>
-                        )
-                    }
+                        <ListItemText>
+                            <Link className={classes.link} to="/login">
+                                {!user ? ('Login') : ('User')}
+                            </Link>
+                        </ListItemText>
+                    </ListItem>
+
+
 
                     <ListItem onClick={CloseDrawer}>
                         <Phone fontSize="medium" />

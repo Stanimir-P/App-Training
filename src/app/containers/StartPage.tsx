@@ -17,6 +17,12 @@ export const StartPage: React.FunctionComponent<{}> = () => {
                 sx={{
                     color: 'white',
                     border: '1px solid white',
+                    transition: '0.7s',
+                    
+                    '&:hover': {
+                        backgroundColor: '#ffffff42',
+                        borderColor: 'white'
+                      },                    
                 }}
             >
                 About

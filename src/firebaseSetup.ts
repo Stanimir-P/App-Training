@@ -3,12 +3,12 @@ import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 
 const firebaseConfig = {
-	apiKey: "AIzaSyDgpwSaCHmgdFDBX7e4fnDHQKuToF-JHOQ",
-	authDomain: "pixelpool-49f3d.firebaseapp.com",
-	projectId: "pixelpool-49f3d",
-	storageBucket: "pixelpool-49f3d.appspot.com",
-	messagingSenderId: "950879132131",
-	appId: "1:950879132131:web:7a0a1a5ae552c7d58d28d6"
+	apiKey: "AIzaSyD4sekMfeCtGFbh31cp2n83zJKo5O2Vo0A",
+	authDomain: "pixelpool-33f35.firebaseapp.com",
+	projectId: "pixelpool-33f35",
+	storageBucket: "pixelpool-33f35.appspot.com",
+	messagingSenderId: "1060329541614",
+	appId: "1:1060329541614:web:1ac802e8d81dcc9f9588ff"
 };
 
 firebase.initializeApp(firebaseConfig);

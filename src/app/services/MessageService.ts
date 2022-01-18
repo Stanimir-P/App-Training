@@ -1,3 +1,4 @@
+import firebase from "firebase/compat";
 import { IMessageData } from "../../domain/Message";
 import { database } from "../../firebaseSetup";
 
@@ -5,20 +6,37 @@ import { database } from "../../firebaseSetup";
 const db = database.collection('/messages');
 
 class MessageDataService {
-    getAll () {
-        return db;
+    getUserData(userId: string) {
+        const currData: firebase.firestore.DocumentData[] = [];
+
+        return db.where('userId', '==', userId).get()
+            .then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    let docData = doc.data();
+                    docData['ticketId'] = doc.id;
+                    
+                    currData.push(docData);
+                });
+
+                return currData;
+            })
+            .catch((error) => {
+                console.log("Error getting documents: ", error);
+            });
     }
 
-    create (message: IMessageData) {
+    create(message: IMessageData) {
         return db.add(message);
     }
 
-    update (id: string, value: any) {
-        return db.doc(id).update(value);
+    updateTicket(ticketId: string, value: any) {
+        return db.doc(ticketId).update({
+            ticketStatus: value 
+        });
     }
 
-    delete (id: string) {
-        return db.doc(id).delete();
+    deleteTicket(ticketId: string) {
+        return db.doc(ticketId).delete();
     }
 }
 

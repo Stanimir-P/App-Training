@@ -8,7 +8,6 @@ import { AuthContext } from "../../context/AuthContext";
 import { Login, Person } from '@mui/icons-material';
 
 const useStyles = makeStyles(() => createStyles({
-
     toolbar: {
         justifyContent: 'space-between',
         background: '#ffffff'
@@ -40,7 +39,7 @@ export const Navigation: React.FunctionComponent = () => {
     const classes = useStyles();
 
     return (
-        <AppBar position='sticky' sx={{width: '100%'}}>
+        <AppBar position="absolute" style={{zIndex: 2}} sx={{ width: '100%' }}>
             <CssBaseline />
             <Toolbar className={classes.toolbar}>
                 <Link to="/" >
@@ -50,17 +49,15 @@ export const Navigation: React.FunctionComponent = () => {
                 <div className={classes.rightSide}>
                     <DrawerComponent />
 
-                    {!user ?
-                        (
-                            <Link to="/login">
-                                <Login fontSize="medium" className={classes.link}/>
-                            </Link>
-                        ) : (
-                            <Link to="/user-options">
-                                <Person fontSize="medium" className={classes.link}/>
-                            </Link>
-                        )
-                    }
+                    <Link to="/login">
+                        {!user ?
+                            (
+                                <Login fontSize="medium" className={classes.link} />
+                            ) : (
+                                <Person fontSize="medium" className={classes.link} />
+                            )
+                        }
+                    </Link>
                 </div>
             </Toolbar>
         </AppBar >

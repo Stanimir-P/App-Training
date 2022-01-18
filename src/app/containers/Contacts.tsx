@@ -53,7 +53,7 @@ export const Contacts: React.FunctionComponent = () => {
 
     const [messageType, setMessageType] = useState<string>('');
 
-    const user = auth.currentUser;
+    const user = auth.currentUser;    
 
     if (!user) { return renderNotAuthorized() }
 
@@ -76,6 +76,7 @@ export const Contacts: React.FunctionComponent = () => {
             lastName: lastName,
             title: title,
             description: description,
+            ticketStatus: 'Open',
             messageType: messageType as MessageType,
         })
 

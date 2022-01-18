@@ -5,6 +5,7 @@ import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import { auth } from '../../firebaseSetup';
 import { Link, useHistory } from "react-router-dom";
+import ChangePassword from './ChangePassword';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -64,6 +65,7 @@ const Login = () => {
                 username,
                 password
             );
+            history.push('/');
         } catch (error) {
             alert("Oops, an error occurred!");
             console.error(error);
@@ -76,7 +78,7 @@ const Login = () => {
                 username,
                 password
             );
-            history.push('/tickets');
+            history.push('/');
         } catch (error) {
             alert("Wrong username or/and password!");
             console.error(error);
@@ -152,24 +154,28 @@ const Login = () => {
                                 </Grid>
                             </Container>
                         </CardActions>
-                        
+
                         <Link to="/reset-password" className={classes.link}>Forgot your password?</Link>
                     </Card>
                     ) : (
-                        <Card className={classes.card}>
-                            <CardHeader className={classes.header} title={cardHeader} />
-                            <CardContent>
-                                <Button
-                                    fullWidth
-                                    color="secondary"
-                                    variant="contained"
-                                    onClick={signOut}
-                                    sx={{ mt: 3, mb: 2 }}
-                                >
-                                    Sign Out
-                                </Button>
-                            </CardContent>
-                        </Card>
+                        <div>
+                            <Card className={classes.card}>
+                                <CardHeader className={classes.header} title={cardHeader} />
+                                <CardContent>
+                                    <Button
+                                        fullWidth
+                                        color="secondary"
+                                        variant="contained"
+                                        onClick={signOut}
+                                        sx={{ mt: 3, mb: 2 }}
+                                    >
+                                        Sign Out
+                                    </Button>
+                                </CardContent>
+                            </Card>
+
+                            <ChangePassword />
+                        </div>
                     )
                 }
             </Box>

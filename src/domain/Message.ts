@@ -6,6 +6,7 @@ export interface IMessageData {
     email: string,
     title: string,
     description: string,
+    ticketStatus: string,
     messageType: MessageType,
 }
 
